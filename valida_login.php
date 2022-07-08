@@ -19,7 +19,7 @@
         header('Location: meu_perfil.php');
         $_SESSION['autenticado'] = 'S';
     } else {
-        header('Location: criar_conta.php?login=errologin');
+        header('Location: logar_conta.php?login=errologin');
         $_SESSION['autenticado'] = 'N';
     }
 
