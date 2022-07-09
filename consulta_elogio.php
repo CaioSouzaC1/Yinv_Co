@@ -98,7 +98,7 @@ fclose($arquivoElogio);
                 continue;
               }
               ?>
-            <div class="card bg-light">
+            <div class="card bg-light mt-1">
               <div class="card-body">
               
                 <h5 class="card-title"><?=$dados[0]?></h5>

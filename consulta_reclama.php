@@ -94,16 +94,17 @@ fclose($arquivo);
   
           <?php foreach ($chamados as $chamado) {?>
             <?php $dados = explode('&',$chamado);
-              if (count($dados)<3) {
+              if (count($dados)<4) {
                 continue;
               }
               ?>
-            <div class="card bg-light">
-              <div class="card-body">
+            <div class="card bg-light mt-1">
+              <div class="card-body ">
               
-                <h5 class="card-title"><?=$dados[0]?></h5>
-                <h6 class="card-subtitle"><?=$dados[1]?></h6>
-                <p class="card-text"><?=$dados[2]?></p>
+                <h5 class="card-title"><?=$dados[1]?></h5>
+                <h6 class="card-subtitle"><?=$dados[2]?></h6>
+                <p class="card-text"><?=$dados[3]?></p>
+                <h6 class="text-success">Id do Solicitante <?=$dados[0]?></h6>
                 </div>
               </div>
                 <?php }?>

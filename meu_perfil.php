@@ -1,5 +1,6 @@
 <?php
 require "validador.php";
+
 ?>
 
 <!DOCTYPE html>
