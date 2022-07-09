@@ -3,12 +3,12 @@ require "validador.php";
 ?>
 
 <?php 
-echo '<pre>';
-print_r ($_POST);
-echo '</pre>';
-
-$titulo = $_POST['titulo'];
-$motivo = $_POST['motivo'];
-$descricao = $_POST['descricao'];
-echo $titulo, $motivo, $descricao;
+$titulo = str_replace("&", "--",$_POST['titulo']);
+$motivo = str_replace("&", "--",$_POST['motivo']);
+$descricao = str_replace("&", "--",$_POST['descricao']);
+$texto = $titulo ." & ". $motivo ." & ". $descricao . PHP_EOL;
+$arquivo = fopen('arquivo.txt', 'a');    
+fwrite($arquivo, $texto);
+fclose($arquivo);
+header('Location: consulta_reclama.php');
 ?>

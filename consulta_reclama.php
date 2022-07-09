@@ -2,6 +2,17 @@
 require "validador.php";
 ?>
 
+<?php 
+$chamados = array();
+$arquivo = fopen('arquivo.txt', 'r');    
+
+while(!feof($arquivo)) {
+   $registra = fgets($arquivo);
+   $chamados[] = $registra;
+}
+fclose($arquivo);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -28,15 +39,14 @@ require "validador.php";
           <a href="meu_perfil.php"><h4>Meu Perfil</h4></a>
         </div>
        
-        <button class="navbar-toggler btn btn-outline-primary
-        " data-toggle="collapse" data-target="#menu"> 
+        <button class="navbar-toggler btn btn-outline-primary" data-toggle="collapse" data-target="#menu"> 
           <span class="navbar-toggler-icon"></span>
         </button>
         <div id="menu" class="collapse navbar-collapse">
 
           <ul class="navbar-nav m-auto">
             <li class="nav-item">
-              <a href="#investimentos" class="nav-link">Meus Investimentos
+              <a href="meu_perfil.php" class="nav-link">Meus Investimentos
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                   <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
@@ -74,106 +84,36 @@ require "validador.php";
       </nav>
   </header>
 
-  <section class="bg-primary pb-3 pt-3">
-  <h3 class="text-center mt-3 mb-4 text-white">Meus Investimentos
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
-      <path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"/>
-      <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
-    </svg>
-  </h3>
-    <div class="mt-3 mb-4">
-      <div class="container">
-          <div class="row">
-              <div class="col-12 col-lg-3 col-md-6 col-sm-6 text-center mb-3">
-                <div class="borda3 w-75"><a href=""><img src="app.png" class="app-invest p-2" width="100%" alt=""></a></div>
-              </div>
-              <div class="col-12 col-lg-3 col-md-6 col-sm-6 text-center mb-3">
-                <div class="borda3 w-75"><a href=""><img src="app2.png" class="app-invest p-2" width="100%" alt=""></a></div>
-              </div>
-              <div class="col-12 col-lg-3 col-md-6 col-sm-6 text-center mb-3">
-                <div class="borda3 w-75"><a href=""><img src="app3.png" class="app-invest p-2" width="100%" alt=""></a></div>
-              </div>
-              <div class="col-12 col-lg-3 col-md-6 col-sm-6 text-center">
-                <div class="borda3 w-75"><a href=""><img src="app4.png" class="app-invest p-2" width="100%" alt=""></a></div>
-              </div>
+  <section>
+    <div class="container">
+      <div class="w-100">
+        <div class="card">
+          <div class="card-header">
+            Consulta reclamações
           </div>
+  
+          <?php foreach ($chamados as $chamado) {?>
+            <?php $dados = explode('&',$chamado);
+              if (count($dados)<3) {
+                continue;
+              }
+              ?>
+            <div class="card bg-light">
+              <div class="card-body">
+              
+                <h5 class="card-title"><?=$dados[0]?></h5>
+                <h6 class="card-subtitle"><?=$dados[1]?></h6>
+                <p class="card-text"><?=$dados[2]?></p>
+                </div>
+              </div>
+                <?php }?>
+        </div>
+      
       </div>
     </div>
   </section>
 
-    <section class="mt-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-12 col-sm-12 col-lg-6 mb-5">
-            <h3 class="text-center mt-2 mb-2">Abrir reclamações 
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-emoji-angry" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zm6.991-8.38a.5.5 0 1 1 .448.894l-1.009.504c.176.27.285.64.285 1.049 0 .828-.448 1.5-1 1.5s-1-.672-1-1.5c0-.247.04-.48.11-.686a.502.502 0 0 1 .166-.761l2-1zm-6.552 0a.5.5 0 0 0-.448.894l1.009.504A1.94 1.94 0 0 0 5 6.5C5 7.328 5.448 8 6 8s1-.672 1-1.5c0-.247-.04-.48-.11-.686a.502.502 0 0 0-.166-.761l-2-1z"/>
-              </svg>
-            </h3>
-          <div id="reclama" class="m-auto pt-3 tex"> 
-            <div class="w-75 m-auto text-center mb-3">
-            <form action="cadastra_reclama.php"  method="post">
-                <div>
-                 <h6>Título</h6>
-                    <input type="text" name="titulo" class="w-100">
-                </div>  
-                <div class="mt-4">
-                    <h6>Motivos</h6>
-                <select name="motivo" class="w-100" id="">Motivos
-                <option value="Null"></option>
-                <option value="Falha No Sistema">Falha no sistema</option>
-                <option value="Desvio de Dinheiro">Desvio de dinheiro</option>
-                <option value="Criar Acc PJ">Criar conta PJ</option>
-                <option value="Outros">Outros</option>
-              </select>
-            </div>
-            <div class="mt-5">
-               <label for=""><h6>Descrição</h6></label>
-               <textarea name="descricao" id="textarea" cols="40" rows="6"></textarea>
-            </div>
-            <button type="submit" class="btn mt-3 btn-primary">Enviar Reclamação</button>
-        </form>
-        </div>
-          </div>
-        </div>
-          
-        <div class="col-md-12 col-12 col-sm-12 col-lg-6">
-        <h3 class="text-center mt-2 mb-2">Fazer sugestão
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
-        </svg>
-        </h3>
-          <div id="reclama" class="m-auto pt-3 tex"> 
-            <div class="w-75 m-auto text-center">
-            <form action="cadastra_elogio.php"  method="post">
-                <div>
-                 <h6>Título</h6>
-                    <input type="text" name="titulo" class="w-100">
-                </div>  
-                <div class="mt-4">
-                    <h6>Aspecto</h6>
-                <select name="aspecto" class="w-100" id="">Motivos
-                <option value="Null"></option>
-                <option value="Bom Atendimento">Elogio ao atendimento</option>
-                <option value="Plataforma Boa">Plataforma descomplicada</option>
-                <option value="Outros Elogio">Outros</option>
-            </select>
-            </div>
-            <div class="mt-5">
-               <label for=""><h6>Observação</h6></label>
-               <textarea name="observacao" id="textarea" cols="40" rows="6"></textarea>
-            </div>
-            <button type="submit" class="btn mt-3 btn-primary">Enviar Sugestão</button>
-        </form>
-          </div>
-
-      </div>
-      </div>
-    </section>
-
-    <footer id="footer" class="pt-4 mt-2 pb-4 bg-primary">
+  <footer id="footer" class="pt-4 mt-2 pb-4 bg-primary fixed-bottom">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 text-center align-self-center pt-1"><h5 class="text-white">Acompanhe nas redes sociais</h5></div>
@@ -197,11 +137,3 @@ require "validador.php";
         </div>
       </div>
     </footer>
-
-    <script src="js.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  
-  </body>
-</html>
