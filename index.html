@@ -32,15 +32,14 @@
       <nav class="navbar navbar-expand-md branco navbar-light">
         <div class="container">
           <div id="logo" class="navbar-brand align-self-center">
-          <a href="index.html"><img src="logo primary.png" class="logo" width="152px" alt=""></a>
+          <a href=""><img src="logo primary.png" class="logo" width="152px" alt=""></a>
         </div>
        
         <div id="logarconta" class="text-center criar mr-auto align-self-end">
           <a target="_blank" href="logar_conta.php"><h4>Efetuar login</h4></a>
         </div>
        
-        <button class="navbar-toggler btn btn-outline-primary
-        " data-toggle="collapse" data-target="#menu"> 
+        <button class="navbar-toggler btn btn-outline-primary" data-toggle="collapse" data-target="#menu"> 
           <span class="navbar-toggler-icon"></span>
         </button>
         <div id="menu" class="collapse navbar-collapse">
@@ -91,16 +90,18 @@
         </div>
         <div class="d-none d-md-block">
          <div class="pt-3 pb-1 m-auto text-center">
-          <div class="input-group mb-3 email"> <div class="align-self-center pr-1">
+          <div class="input-group mb-3 email"> 
+            <div class="align-self-center pr-1">
             <span>Receba o link</span>
-            
-          </div>
-            <div class="input-group-prepend">
-              <form action="">
-              <input type="email" class="form-control" placeholder="Seu email aqui..." aria-label="" aria-describedby="basic-addon1">
-            </form>
             </div>
-            <button class="btn btn-outline-light" aria-placeholder="Receber Por Email" type="button">Enviar</button>
+           
+          <div class="input-group-prepend">
+              <form action="processa_email.php" method="post">
+              <input type="email" name="email" class="form-control" placeholder="Seu email aqui..." aria-label="" aria-describedby="basic-addon1">
+            
+            </div>
+            <button class="btn btn-outline-light" aria-placeholder="Receber Por Email" type="submit">Enviar</button>
+          </form>
           </div>
         </div>
       </div>

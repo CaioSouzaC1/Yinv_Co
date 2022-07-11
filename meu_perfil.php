@@ -22,7 +22,7 @@ require "validador.php";
       <nav class="navbar navbar-expand-lg branco navbar-light">
         <div class="container">
           <div id="logo" class="navbar-brand align-self-center">
-          <a href="index-11.html"><img src="logo primary.png" class="logo" width="152px" alt=""></a>
+          <a href="index.html"><img src="logo primary.png" class="logo" width="152px" alt=""></a>
         </div>
        
         <div id="criarconta" class="text-center criar mr-auto align-self-end">

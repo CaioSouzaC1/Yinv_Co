@@ -32,7 +32,7 @@ fclose($arquivo);
       <nav class="navbar navbar-expand-lg branco navbar-light">
         <div class="container">
           <div id="logo" class="navbar-brand align-self-center">
-          <a href="index-11.html"><img src="logo primary.png" class="logo" width="152px" alt=""></a>
+          <a href="index.html"><img src="logo primary.png" class="logo" width="152px" alt=""></a>
         </div>
        
         <div id="criarconta" class="text-center criar mr-auto align-self-end">
@@ -114,11 +114,11 @@ fclose($arquivo);
     </div>
   </section>
 
-  <footer id="footer" class="pt-4 mt-2 pb-4 bg-primary fixed-bottom">
+  <section class="margintop">
+    <footer id="footer" class=" pt-4 pb-4 bg-primary">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 text-center align-self-center pt-1"><h5 class="text-white">Acompanhe nas redes sociais</h5></div>
-            
+          <div class="col-sm-6 text-center align-self-center pt-1"><h5 class="text-white">Acompanhe nas redes sociais</h5></div>   
           <div class="col-sm-6 text-center align-self-start pt-1">
             <a href="paginaemcriacao.html" target="_blank" class="btn btn-outline-light">
               <i class="fab fa-youtube"></i> 
@@ -138,3 +138,5 @@ fclose($arquivo);
         </div>
       </div>
     </footer>
+</section>
+            </body>
