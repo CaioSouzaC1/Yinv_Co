@@ -206,19 +206,26 @@ body {
   margin-bottom: 0px;
 }
 
-#slider img{
+.slider img{
   opacity: 0;
   object-fit: cover;
   transition: opacity 1000ms;
 }
 
-#slider img.selected{
+.slider img.selected{
   opacity: 1;
 }
 
-#slider img{
+.slider img{
   position: absolute;
 }
 .margintop {
   margin-top: 328px;
+}
+.bordacriarconta {
+  border-radius: 10px;
+  border: 1px solid #2678FF;
+}
+.h-150{
+  height: 21em;
 }

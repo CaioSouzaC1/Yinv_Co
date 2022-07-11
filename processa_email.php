@@ -1,4 +1,5 @@
 <?php
+   
     require "validador.php";
 	require "PHPMailer/Exception.php";
 	require "PHPMailer/OAuth.php";
@@ -8,13 +9,11 @@
 
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
-    if ($enviado == 1) {
-        header('Location: email_enviado.html');
-    } 
+   
     if ($enviado == 0) {
-        header('Location: index.html?ErroNoEnvio');
+        header('Location: email_enviado.html');
     }   
-    
+   
 
 	class Mensagem {
         private $para = null;
@@ -29,22 +28,18 @@
        
         function vazio(){
             if (empty($this->para)){
-                $enviado = 0;
-            }
+                header('Location: index.html?EmailEmBranco');
+            } 
         }
     }
 
     $mensagem = new Mensagem();
     $mensagem->__set('para',$_POST['email']);
-    print_r($mensagem);
     $mensagem->vazio();
-    
-    
-
-   
 
 	$mail = new PHPMailer(true);
 	try {
+            
 			//Server settings
 			$mail->SMTPDebug = 2;                   //Enable verbose debug output
 			$mail->isSMTP();                                            //Send using SMTP
@@ -76,12 +71,12 @@
 
 			$mail->send();
 			echo 'Email enviado com sucesso!';
-            $enviado = 1;
+          
 	} catch (Exception $e) {
-             $enviado = 0;
+            $enviado == 0;
 			echo "Não foi possivel enviar este e-mail! <br>";
 			echo 'Detalhes do erro: ' . $mail->ErrorInfo;
-	}
+        } 
     
 ?>
 

@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <!--ToDo:
-Arrumar o Slider (Não localiza as classes no estilo.css);
 Retirar as pages php com dados;-->
 <html lang="pt-br">
   <head>
-    <style>
-      #slider img{
-          opacity: 0;
-          object-fit: cover;
-          transition: opacity 1000ms;
-        }
-
-        #slider img.selected{
-          opacity: 1;
-        }
-
-        #slider img{
-          position: absolute;
-        }
-    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Yinv Corretora de Investimentos, Invista de forma inteligente!">
@@ -48,6 +32,14 @@ Retirar as pages php com dados;-->
         <div id="menu" class="collapse navbar-collapse">
 
           <ul class="navbar-nav m-auto">
+            <li class="nav-item">
+              <a href="criar_conta.html" class="nav-link">Criar Conta
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="#pacotes" class="nav-link">Pacotes
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
@@ -344,7 +336,7 @@ Retirar as pages php com dados;-->
               <p>  <span class="bold"> 5º </span>Agora você pode investir e aproveitar todas as vantagens do App da <span class="text-primary">Yinv</span></p></div>
             </p>
             </div>
-            <div id="slider" class="col-md-4 col-lg-4 d-md-block d-none text-left puxada mb-auto pl-5 mt-4">
+            <div id="slider" class=" col-md-4 col-lg-4 d-md-block d-none text-left puxada mb-auto pl-5 mt-4">
               <img src="app.png" class="app text selected" alt="i1">
               <img src="app2.png" class="app text" alt="i2">
               <img src="app3.png" class="app text" alt="i3">
