@@ -8,9 +8,12 @@
 
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
-    if ($enviado = 1) {
+    if ($enviado == 1) {
         header('Location: email_enviado.html');
-    }
+    } 
+    if ($enviado == 0) {
+        header('Location: index.html?ErroNoEnvio');
+    }   
     
 
 	class Mensagem {
@@ -26,7 +29,7 @@
        
         function vazio(){
             if (empty($this->para)){
-                echo "vazio";
+                $enviado = 0;
             }
         }
     }
@@ -65,7 +68,7 @@
 
 			//Content
 			$mail->isHTML(true);                                  //Set email format to HTML
-			$mail->Subject = 'Obrigado por testar o Site da Yinv Co!';
+			$mail->Subject = 'Obrigado por testar o site da Yinv Co!';
 			$mail->Body    = '<div style="color: #2679ff;"><h1>Yinv Co.</h1></div> <br><br>
             <div><h3>Site criado com propósito de ampliar conhecimentos e práticar!</h3></div><br>
             <div style="color: #2679ff;"><h5>Made By <a href="https://github.com/CaioSouzaC1">Caio César</a></h5></div>';
