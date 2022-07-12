@@ -229,3 +229,6 @@ body {
 .h-150{
   height: 21em;
 }
+.b-radius-50 {
+  border-radius: 50px;
+}

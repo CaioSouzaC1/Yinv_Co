@@ -23,26 +23,32 @@
       </nav>
   </header>
 
-  <section class="pt-3">
+  <section class="pt-3 mb-5">
     <div class="m-auto text-center h-150 w-75 bordacriarconta">
         <div class="display-4 text-center">Criando conta na <span class="text-primary">Yinv Co</span></div>
         <div class="w-75 h-75 pt-3 bg-light m-auto bordacriarconta">
-            <form action="registra.php" method="post">
-                <div class="m-2"><span>Seu </span> <span class="text-primary">nome:</span>
-                <input required type="text" name="nome" id="">
+            <form action="cadastra_conta.php" method="post">
+                <div class="m-2">
+                <input required type="text" name="nome" placeholder="Seu Nome" aria-placeholder="NOME" id="nome">
             </div>
-            <div class="m-2"><span>Seu </span> <span class="text-primary">email:</span>
-                <input required type="email" name="email" id="">
+            <div class="m-2">
+                <input required type="email" placeholder="Seu email" aria-placeholder="EMAIL" name="email" id="email">
                 </div>
-                <div class="m-2"><span>Sua </span> <span class="text-primary">senha:</span>
-                <input required type="password" name="senha" id="">
+                <div class="m-2">
+                <input required type="password" placeholder="Sua senha" aria-placeholder="SENHA" name="senha" id="senha">
                 </div>
                 <button class="btn btn-outline-primary" type="submit">Criar Conta</button>
             </form>
+           
         </div>
-        
+        </div>  
     </div>
   </section>
+
+
+
+
+  
 
   <section class="margintop">
     <footer id="footer" class="pt-4 pb-4 bg-primary">
@@ -69,9 +75,6 @@
       </div>
     </footer>
 </section>
-
-    <script src="slider.js"></script>
-    <script src="js.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
