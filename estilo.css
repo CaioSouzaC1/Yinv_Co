@@ -189,7 +189,6 @@ body {
 .duvidas {
   cursor: pointer;
   padding: 10px 5px;
-  background-color: #ececec;
   border: 1px solid black;
 
 }
@@ -222,13 +221,22 @@ body {
 .margintop {
   margin-top: 328px;
 }
+.margintopmenos{
+  margin-top: 140px;
+}
 .bordacriarconta {
   border-radius: 10px;
   border: 1px solid #2678FF;
+
 }
 .h-150{
   height: 21em;
 }
 .b-radius-50 {
   border-radius: 50px;
+}
+.inputcriando{
+  border: #2678FF 1px solid;
+  border-radius: 7px;
+  height: 2.5em;
 }
