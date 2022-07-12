@@ -1,30 +1,23 @@
-<?php 
+ <?php 
+ session_start();
+include "conexao.php";
 
-    session_start();
+$email = mysqli_real_escape_string($conexao,trim($_POST['email']));
+$senha = mysqli_real_escape_string($conexao,trim($_POST['senha']));
 
-    $autentica_user = false;
-    
-    $usuarios = array(
-       array('email' => 'caio@teste.com.br', 'senha' => '123456', 'id' => 1),
-       array('email' => 'adm@teste.com.br', 'senha' => '123456', 'id' => 2),
-    );
+$query = "SELECT * FROM `table_yinv_co` WHERE email = '{$email}' AND senha = md5('$senha')";
+$result = mysqli_query($conexao,$query);
+$row = mysqli_num_rows($result);
 
-    foreach ($usuarios as $user) {
-        if ($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']) {
-            $autentica_user = true;
-            $usuario_id = $user['id'];
-        } 
-    }
 
-    if ($autentica_user) {
-        $_SESSION['autenticado'] = 'S';
-        $_SESSION['id'] = $usuario_id;
-        header('Location: meu_perfil.php');
-    } else {
-        $_SESSION['autenticado'] = 'N';
-        header('Location: logar_conta.php?login=errologin');
-    }
-
-  
+if ($row == 1) {
+    $_SESSION['autenticado'] = 'S';
+    header('Location: meu_perfil.php?login=Logado');  
+    exit;
+} else {
+    $_SESSION['autenticado'] = 'N';   
+    echo ($row);
+    header('location: logar_conta.php?login=FalhaLogin');
+}
 
  ?>
